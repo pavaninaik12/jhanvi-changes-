@@ -1,5 +1,10 @@
-var slingshot,ball;
-var ground;
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint;
+
+var slingshot1,ball;
+var ground1;
 var stand1,stand2;
 var block1,block2,block3,block4,block5,block6;
 var block7,block8,block9,block10,block11,block12;
@@ -13,9 +18,9 @@ function setup(){
     createCanvas(900,400);
     engine= Engine.create();
     world=engine.world;
-    Enigne.run(engine);
-    ground= new ground();
-    stand1=new stand1(390,300,250,10);
+   
+    ground1= new ground();
+    stand1=new stand(390,300,250,10);
     stand2 =new stand (700,200,200,10);
 
     //level1
@@ -54,20 +59,20 @@ blocks8=new Block (730,135,30,40);
 blocks9=new Block (700,95,30,40);
 
 ball= Bodies.circle(50,200,20);
-world.add(world,ball);
 
-slingshot = new slingshot(this.ball,{x:100,y:200});
+
+slingshot1 = new Slingshot(this.ball,{x:100,y:200});
 
 }
 function draw(){
     background(50,44,44);
-
+    Engine.run(engine);
     textSize(20);
     fill("lightyellow");
 text("drag the hexagonal stone and release it, to launch it towards the blocks ",100,30);
 
-ground.display();
-stand1.disply();
+ground1.display();
+stand1.display();
 stand2.display();
 strokeWeight(2);
 fill("skyblue");
@@ -105,5 +110,6 @@ blocks9.display();
 fill("gold");
 imageMode(CENTER)
 image(polygon_img,ball.position.x,ball.position.y,40,40);
-slingshot.display();
+slingshot1.display();
 }
+

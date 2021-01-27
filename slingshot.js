@@ -1,12 +1,12 @@
 class Slingshot{
-    constructor(bodyA,bodyB){
+    constructor(bodyA,pointB){
         var options ={
             bodyA:bodyA,
             pointB:pointB,
             stiffness:0.04,
             length:1
         }
-        this.sling=constraite.create(options);
+        this.sling=Constraint.create(options);
         this.pointB = pointB;
         World.add(world,this.sling);
     }
@@ -16,7 +16,7 @@ class Slingshot{
     display(){
         if(this.sling.bodyA){
             var pointA= this.sling.bodyA.position;
-            var pointB = this.bodyB;
+            var pointB = this.pointB;
 
             strokeWeight(4);
             stroke("turquosie");

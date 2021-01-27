@@ -1,11 +1,11 @@
 class ground{
 
 constructor(){
-    var ground_optons={
+    var ground_options={
         isStatic:true
     }
 
-        this.ground = Bodies.rectangle(450,390,900,20,ground_options)
+   this.ground = Bodies.rectangle(450,390,900,20,ground_options)
     World.add(world,this.ground);
     }
     display(){
